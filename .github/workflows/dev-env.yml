@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - dev
-bulid:
-  deploy-dev:
+jobs:
+  build:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
@@ -20,7 +20,7 @@ bulid:
         with:
           push: true
           tags: ghcr.io/xhamsterse/bookinfo_ratings:dev
-deploy:
+  deploy:
     needs: build
     runs-on: ubuntu-20.04
     steps:
